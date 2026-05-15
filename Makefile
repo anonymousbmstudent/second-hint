@@ -21,7 +21,7 @@ make_lib:
 
 
 all: $(src) make_lib
-	mkdir build
+	mkdir -p build
 	$(cc) $(cc_flags) -o $(target) $(src)
 ifeq ($(OS),Windows_NT)
 	copy "$(lib)" build/
