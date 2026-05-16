@@ -21,10 +21,14 @@ make_lib:
 
 
 all: $(src) make_lib
+ifeq ($(OS),Windows_NT)
+	if not exist "build/" mkdir "build"
+	$(cc) $(cc_flags) -o $(target) $(src)
+	copy $(lib) build\\
+else
 	mkdir -p build
 	$(cc) $(cc_flags) -o $(target) $(src)
-ifeq ($(OS),Windows_NT)
-	copy "$(lib)" build/
+
 endif
 
 
