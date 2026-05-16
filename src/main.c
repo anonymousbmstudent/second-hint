@@ -32,7 +32,7 @@ int repl() {
             continue;
         }
 
-        int* diffs = (int*)malloc(sizeof(int) * inputLen);
+        int diffs[BUF_MAX];
 
         compare(diffs, buf, secretString);
         for (size_t i = 0; i < inputLen; i++) {
